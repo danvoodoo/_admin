@@ -1,0 +1,25 @@
+[05-May-2015 15:44:43 Europe/Rome] PHP Warning:  scandir(../../uploads/) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 456
+[05-May-2015 15:44:43 Europe/Rome] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 456
+[05-May-2015 15:44:43 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 463
+[05-May-2015 15:44:43 Europe/Rome] PHP Warning:  Invalid argument supplied for foreach() in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 926
+[05-May-2015 14:48:59 Europe/Lisbon] PHP Warning:  scandir(../uploads/) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 456
+[05-May-2015 14:48:59 Europe/Lisbon] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 456
+[05-May-2015 14:48:59 Europe/Lisbon] PHP Warning:  Invalid argument supplied for foreach() in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 463
+[05-May-2015 14:48:59 Europe/Lisbon] PHP Warning:  Invalid argument supplied for foreach() in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 926
+[05-May-2015 14:49:28 Europe/Lisbon] PHP Warning:  scandir(../uploads/) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 456
+[05-May-2015 14:49:28 Europe/Lisbon] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 456
+[05-May-2015 14:49:28 Europe/Lisbon] PHP Warning:  Invalid argument supplied for foreach() in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 463
+[05-May-2015 14:49:28 Europe/Lisbon] PHP Warning:  Invalid argument supplied for foreach() in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 926
+[05-May-2015 15:50:34 Europe/Rome] PHP Fatal error:  Uncaught exception 'Exception' with message 'file ../../../uploads/o_banner_1430666458.png is missing or invalid' in /home/astrocalco/public_html/2015/admin/includes/filemanager/include/php_image_magician.php:346
+Stack trace:
+#0 /home/astrocalco/public_html/2015/admin/includes/filemanager/include/utils.php(216): imageLib->resizeImage(122, 91, 'crop')
+#1 /home/astrocalco/public_html/2015/admin/includes/filemanager/upload.php(92): create_img('../../../upload...', '../../photos/o_...', 122, 91)
+#2 {main}
+  thrown in /home/astrocalco/public_html/2015/admin/includes/filemanager/include/php_image_magician.php on line 346
+[20-May-2015 16:28:34 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/astrocalco/public_html/2015/admin/includes/filemanager/config/config.php on line 60
+[20-May-2015 16:28:57 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/astrocalco/public_html/2015/admin/includes/filemanager/config/config.php on line 61
+[20-May-2015 16:29:01 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/astrocalco/public_html/2015/admin/includes/filemanager/config/config.php on line 61
+[20-May-2015 18:29:16 Europe/Rome] PHP Warning:  include(../../config.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/astrocalco/public_html/2015/admin/includes/filemanager/config/config.php on line 47
+[20-May-2015 18:29:16 Europe/Rome] PHP Warning:  include(../../config.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/astrocalco/public_html/2015/admin/includes/filemanager/config/config.php on line 47
+[20-May-2015 18:29:16 Europe/Rome] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '../../config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/astrocalco/public_html/2015/admin/includes/filemanager/config/config.php on line 47
+[20-May-2015 18:29:16 Europe/Rome] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/astrocalco/public_html/2015/admin/includes/filemanager/config/config.php:47) in /home/astrocalco/public_html/2015/admin/includes/filemanager/dialog.php on line 45

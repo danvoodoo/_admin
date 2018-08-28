@@ -1,0 +1,1 @@
+<?php echo '<input class="txt" name="'.$field['field'].'" type="hidden" value="'.$field['value'].'" />'; ?>

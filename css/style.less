@@ -1,0 +1,151 @@
+//Foundation custom grid width
+@sitewidth : 1100px;
+@gutterwidth : 40px;
+
+//this contains some mixins and libraries css
+@import 'helpers.less';
+
+
+a{
+	.tr(0.5s);
+}
+
+header{
+	height: 100px;
+	background: #eee;
+	.row, .columns{
+		height: 100%;
+	}
+	h1{
+		position: absolute;
+		top: 25px;
+		left: 20px;
+		a{
+			width: 240px; 
+		    height: 50px;
+		    background: url(../img/logo.png) no-repeat;
+		    .block;
+		}
+	}
+}
+nav{
+	background: #ddd;
+	height: 50px;
+	ul{
+		.clearul;
+		li{
+			float: left;
+			padding: 0 10px;
+			a{
+				display: block;
+				line-height: 50px;
+				color: #111;
+				padding: 0 10px;
+			}
+		}
+	}
+}
+
+.hero{
+	ul{
+		.clearul;
+		li{
+			height: 500px;
+			position: relative;
+			.bg{
+				.absolute;
+				.bgcover;
+			}
+			.text{
+				position: absolute;
+				bottom: 30px;
+				left: 30px;
+				background: rgba(0,0,0,.5);
+				color: #fff;
+				padding: 30px;
+				min-width: 400px;
+			}
+			h2, a{
+				color: #fff;
+			}
+		}
+	}
+}
+section{
+	margin: 50px 0;
+}
+#map{
+	height: 500px;
+}
+.parallaxexample{
+	height: 500px;
+	position: relative;
+	overflow: hidden;
+	.bg{
+		.absolute;
+		.bgcover;
+		height: 120%;
+	}
+	.text{
+		position: absolute;
+		text-align: center;
+		color: #fff;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+		opacity: 0;
+		.tr(1s);
+		h2{
+			color: #fff;
+		}
+	}
+	&.in{
+		.text{
+			opacity: 1;
+		}
+	}
+
+}
+
+
+.vars{
+		padding-bottom: 20px;
+		a{
+			position: relative;
+			padding: 5px 60px 5px 30px;
+			margin-bottom: 10px;
+			display: block;
+			min-height: 50px;
+			.p{
+				position: absolute;
+				top: 5px;
+				right: 0;
+				font-weight: bold;
+				text-align: right;
+				.s{
+					font-size: 13px;
+					font-weight: normal;
+				}
+			}
+			.c{
+				position: absolute;
+				width: 15px;
+				height: 15px;
+				border: 1px solid #ddd;
+				border-radius: 100px;
+				top: 11px;
+				left: 0;
+			}
+			&.active{
+				.c{
+					background: red;
+				}
+			}
+		}
+	}
+table{
+	width: 100%;
+}	
+
+//this has to be at bottom cause the media queries overwrite the css
+@import 'mq.less';

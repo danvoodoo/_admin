@@ -1,0 +1,60 @@
+@red: #9A2829;
+
+@import url('https://fonts.googleapis.com/css?family=Cormorant');
+.font1{
+	font-family: 'Cormorant', serif;
+}
+
+h2,h3,h4{
+	.font1;
+	color: @red;
+}
+h2{
+	color: @red;
+	font-size: 52px;
+}
+h3{
+	color: @red;
+	font-size: 40px;
+}
+h4{
+	color: @red;
+	font-size: 32px;
+}
+body{
+	color: #575753;
+	.font1;
+}
+p{
+	.font1;
+	font-size: 16px;
+	a{
+		color: @red;
+		&:hover{
+			color: @red;
+			text-decoration: underline;
+		}
+	}
+}
+
+.button, button{
+	background: @red;
+	.font1;
+	color: #fff;
+	font-size: 45px;
+	line-height: 100%;
+	padding: 7px 25px 10px;
+
+	&.whiteoutline{
+		border: 1px solid #fff;
+		background: transparent;
+	}
+	&.small{
+		padding: 10px 25px;
+	}
+
+	&:hover{
+		background: @red - #222;
+	}
+}
+
