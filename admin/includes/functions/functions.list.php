@@ -103,7 +103,9 @@
 	$ancho = $ancho+100;
 	echo '</style>';
 
-	if (isset($extras['table_order'])) { // if there is order table, show help ?>
+	if (isset($extras['table_order'])) { // if there is order table, show help 
+		if ( isset($extras['orderonlyfiltered']) AND $extras['orderonlyfiltered'] == 1 AND  $activefilterwhere != '' ){ 
+		?>
 		<div data-alert class="alert-box orderalert">
 		  	Drag up and down the items to sort.
 
@@ -114,7 +116,11 @@
 			</div>
 
 		</div>
-	<?php }
+	<?php } else { ?>
+		<div data-alert class="alert-box orderalert ">
+		  	To order, first filter the list
+		</div>
+	<?php } }
 
 
 	?>
@@ -279,7 +285,7 @@
 	});
 	</script>
 	
-	<?php if (isset($extras['table_order'])) { // si hay tabla orden corro el script ?>
+	<?php if (isset($extras['table_order'])) { if ( isset($extras['orderonlyfiltered']) AND $extras['orderonlyfiltered'] == 1 AND  $activefilterwhere != '' ){ ?>
 	<script type="text/javascript" language="javascript">
 		$(document).ready(function(){
 	
@@ -348,5 +354,5 @@
 	</script>
 	<div id='peso' style='display:none'></div>
 	<div id='ids' style='display:none'></div>
-	<?php } ?>
+	<?php } } ?>
 	

@@ -38,12 +38,12 @@ if (isset($_POST['action']) AND $_POST['action'] == 'addmenu-custom') {
 	
 	foreach($_POST as $nombre_campo => $valor){ if (!is_array($valor)) $asignacion = "\$" . $nombre_campo . "='" . addslashes(htmlspecialchars($valor)) . "';"; eval($asignacion); }//end foreach
 
-	addmenuitem($menu, $parent, $customurl,  $title,  $newwindow);
+	$title = str_replace( "'", "’", $title);
+	addmenuitem($menu, $parent, $customurl, $title,  $newwindow);
 
 	exit;
 
 }
-
 
 
 

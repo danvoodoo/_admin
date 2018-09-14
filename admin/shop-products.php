@@ -192,6 +192,8 @@ $extras['per_page'] = 20;
 $extras['order'] = 'prod_order DESC';
 
 $extras['table_order'] = 'prod_order'; // activate drag and drop order
+$extras['orderonlyfiltered'] = 1;
+
 $extras['list_where'] = ' prod_parent = 0 '; //custom where for listings
 //$extras['widelist'] = 1; // fluid container
 //$extras['readonly'] = 1;
