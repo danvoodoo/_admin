@@ -9,7 +9,7 @@ function getrepeater($r) {
 function showmenu($id) {
      
     $data = new Database();
-    $where = 'menu_id = 1';
+    $where = 'menu_id = '.$id;
     $count  =  $data->select(" * ", " menus ", $where);
     $menu = $data->getObjectResults();
     $menuitems = json_decode($menu->menu_items);

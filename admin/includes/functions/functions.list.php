@@ -104,7 +104,7 @@
 	echo '</style>';
 
 	if (isset($extras['table_order'])) { // if there is order table, show help 
-		if ( isset($extras['orderonlyfiltered']) AND $extras['orderonlyfiltered'] == 1 AND  $activefilterwhere != '' ){ 
+		if ( ( isset($extras['orderonlyfiltered']) AND $extras['orderonlyfiltered'] == 1 AND  $activefilterwhere != '' ) OR ! isset($extras['orderonlyfiltered']) OR $extras['orderonlyfiltered']  == 0 ){ 
 		?>
 		<div data-alert class="alert-box orderalert">
 		  	Drag up and down the items to sort.
@@ -285,7 +285,7 @@
 	});
 	</script>
 	
-	<?php if (isset($extras['table_order'])) { if ( isset($extras['orderonlyfiltered']) AND $extras['orderonlyfiltered'] == 1 AND  $activefilterwhere != '' ){ ?>
+	<?php if (isset($extras['table_order'])) { if ( ( isset($extras['orderonlyfiltered']) AND $extras['orderonlyfiltered'] == 1 AND  $activefilterwhere != '' ) OR ! isset($extras['orderonlyfiltered']) OR $extras['orderonlyfiltered']  == 0 ){  ?>
 	<script type="text/javascript" language="javascript">
 		$(document).ready(function(){
 	
