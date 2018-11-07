@@ -134,51 +134,59 @@ $user_agent='Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0';
 
 
 
-function backup_database_tables($host,$user,$pass,$name,$tables)
+
+function backup_database_tables($tables)
 {
      
-    $link = mysql_connect($host,$user,$pass);
-    mysql_select_db($name,$link);
+    $data = new Database();
      
     //get all of the tables
     if($tables == '*')
     {
         $tables = array();
-        $result = mysql_query('SHOW TABLES');
-        while($row = mysql_fetch_row($result))
-        {
-            $tables[] = $row[0];
+        
+        $data->query('SHOW TABLES');
+        while($r = $data->getObjectResults()){
+            $tables[] = current( (array)$r );
         }
     }
     else
     {
         $tables = is_array($tables) ? $tables : explode(',',$tables);
     }
+
+    $return = '';
      
     //cycle through each table and format the data
     foreach($tables as $table)
     {
-        $result = mysql_query('SELECT * FROM '.$table);
-        $num_fields = mysql_num_fields($result);
+        
          
         $return.= 'DROP TABLE IF EXISTS '.$table.';';
-        $row2 = mysql_fetch_row(mysql_query('SHOW CREATE TABLE '.$table));
-        $return.= "\n\n".$row2[1].";\n\n";
+
+        $data->query('SHOW CREATE TABLE '.$table);
+        $r = $data->getObjectResults();
+        $return.= "\n\n".$r->{'Create Table'}.";\n\n";
+
+        $data->query('SELECT * FROM '.$table);
          
-        for ($i = 0; $i < $num_fields; $i++)
-        {
-            while($row = mysql_fetch_row($result))
-            {
-                $return.= 'INSERT INTO '.$table.' VALUES(';
-                for($j=0; $j<$num_fields; $j++)
-                {
-                    $row[$j] = addslashes($row[$j]);
-                    $row[$j] = str_replace ("\n","\\n",$row[$j]);
-                    if (isset($row[$j])) { $return.= '"'.$row[$j].'"' ; } else { $return.= '""'; }
-                    if ($j<($num_fields-1)) { $return.= ','; }
-                }
-                $return.= ");\n";
-            }
+        while($r = $data->getObjectResults()){
+       
+              $return.= 'INSERT INTO '.$table.' VALUES(';
+
+              $a=0;
+              foreach ($r as $key => $value) {
+                $a++;
+                if ($a>1) { $return.= ','; }
+
+                    $value = addslashes($value);
+                    $value = str_replace ("\n","\\n",$value);
+                    if (isset($value)) { $return.= '"'.$value.'"' ; } else { $return.= '""'; }
+
+
+              }
+              $return.= ");\n";
+            
         }
         $return.="\n\n\n";
     }

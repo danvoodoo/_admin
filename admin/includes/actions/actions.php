@@ -17,7 +17,7 @@ if (isset($_POST['action']) AND $_POST['action'] == 'savemenu') {
 
 	print_r($_POST);
 	$menuid = $_POST['menu'];
-	$menudata = json_decode( stripslashes($_POST['menudata']));
+	$menudata = json_decode( stripslashes( str_replace("'", "&apos;", $_POST['menudata'])) );
 	print_r($menudata);
 	$menudata = escapeJsonString(json_encode($menudata));
 

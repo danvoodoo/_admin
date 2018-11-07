@@ -140,25 +140,28 @@ $arr = array(
 $count  =  $data->insert(" medialibrary ", $arr);
 $id = $data->lastid();
 
-include('lib/SimpleImage2.php');
+if ( strpos($fileName, '.svg') === false   ) { //dont resize for svg
 
-global  $imagesizes;
-$folder = 'photos';
+	include('lib/SimpleImage2.php');
 
-$img = new abeautifulsite\SimpleImage('../../'.$folder.'/'.$fileName);
-$img->thumbnail(200, 200);
-$img->save('../../'.$folder.'/200_200_'.$fileName, 90);
+	global  $imagesizes;
+	$folder = 'photos';
 
-foreach ($imagesizes as $size) {
-	
 	$img = new abeautifulsite\SimpleImage('../../'.$folder.'/'.$fileName);
-   	if ($size[2]) {
-   		$img->thumbnail($size[0], $size[1]);
-   	} else {
-   		$img->best_fit($size[0], $size[1]);
-   	}
-   	$img->save('../../'.$folder.'/'.$size[0].'_'.$size[1].'_'.$fileName, 90);
-   	
+	$img->thumbnail(200, 200);
+	$img->save('../../'.$folder.'/200_200_'.$fileName, 90);
+
+	foreach ($imagesizes as $size) {
+		
+		$img = new abeautifulsite\SimpleImage('../../'.$folder.'/'.$fileName);
+	   	if ($size[2]) {
+	   		$img->thumbnail($size[0], $size[1]);
+	   	} else {
+	   		$img->best_fit($size[0], $size[1]);
+	   	}
+	   	$img->save('../../'.$folder.'/'.$size[0].'_'.$size[1].'_'.$fileName, 90);
+	   	
+	}
 }
 
 // Return Success JSON-RPC response

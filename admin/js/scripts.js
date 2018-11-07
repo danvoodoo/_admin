@@ -41,8 +41,10 @@ $(document).ready(function () {
 	$('.field.image input').each(function() {
 		if ($(this).val() != '') {
 			previewsize = $(this).data('previewsize');
-			if (previewsize && previewsize != '')
+			if (previewsize)
 				$('<img src="../photos/'+previewsize+$(this).val()+'" class="preview" />').insertAfter(this);
+			else if (previewsize=='')
+				$('<img src="../photos/'+$(this).val()+'" class="preview" />').insertAfter(this);
 			else
 				$('<img src="../photos/200_200_'+$(this).val()+'" class="preview" />').insertAfter(this);
 		}
@@ -64,7 +66,7 @@ $(document).ready(function () {
 			url : 'includes/upload.php',
 	        multi_selection: false,
 			filters : [
-				{title : "Image files", extensions : "jpg,gif,png"}
+				{title : "Image files", extensions : "jpg,gif,png,svg"}
 			],
 			resize : {width : 2500, height : 2000, quality : 90},
 	                multipart_params : {
@@ -84,8 +86,10 @@ $(document).ready(function () {
 		});
 		uploader.bind('FileUploaded', function(up, file,info) {
 
-			if ( $('.filename',target).data('previewsize') )
+			if ( $('.filename',target).data('previewsize') != '' )
 				size = $('.filename',target).data('previewsize');
+			else if ( $('.filename',target).data('previewsize') == '' )
+				size = "";
 			else
 				size = "200_200";
 			
@@ -249,6 +253,11 @@ $(document).ready(function () {
 		  	
 		  	name = name.join('][');
 		  	$(this).attr('name',name);
+	  	}
+
+	  	if ($(this).attr('id')) {
+	  		var n = Math.floor((Math.random() * 100) + 1);
+	  		$(this).attr('id',  $(this).attr('id') + n );
 	  	}
 	  });
 

@@ -1,7 +1,6 @@
 <?php 
 include("includes/init.php");
 include('includes/header.php');
-include("includes/mensajes.php");
 
 ?>
 
@@ -87,7 +86,7 @@ include("includes/mensajes.php");
 			$count  =  $data->select(" * ", " backups ", $where);
 			if ($count == 0) {
 				echo 'Building Database Backup...';
-			  	$bu = backup_database_tables(HOST,USER,PASS,DATABASE,'*');
+			  	$bu = backup_database_tables('*');
 			  	$data = new Database();
 			 	 $arr = array(
 			           'back_date' => date('Ymd')

@@ -345,6 +345,25 @@ h2.title {
 				left: 0;
 			}
 		}
+
+		&.child2 {
+			background: #ccc;
+			&:nth-child(even){
+				background: #ddd;
+			}
+			td:first-child{
+				padding-left: 15px;
+			}
+			td:first-child:after{ 
+				height: 100%;
+				width: 10px;
+				background: #333;
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
 	}
 	/*
 	tr:nth-child(odd){
@@ -1087,5 +1106,115 @@ span.show-for-print-only{
 	}
 	h3{
 		margin: 0;
+	}
+}
+.linkfield{
+	.title{
+		margin-top: 5px;
+		margin-bottom: 5px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.url{
+		font-size: 12px;
+		margin-bottom: 10px;
+	}
+} 
+.urlmanager{
+	padding: 0;
+	background: none;
+	padding-top: 40px;
+	#pages{
+		h4{
+			margin-top: 30px;
+		}
+		a{
+			padding: 5px 10px;
+			display: inline-block;
+			margin: 0 5px 5px 0;
+			background: #eee;
+			color: #333;
+			font-size: 13px;
+			border: 1px solid #ddd;
+			&:hover{
+				background: #ddd;
+			}
+			&.child{
+				margin-left: 20px;
+			}
+		}
+	}
+}
+.fileupload{
+	position: relative;
+	.remove{
+		position: absolute;
+		top: 0;
+		height: 37px;
+		right: 0;
+		font-size: 16px;
+	}
+	.uploadbutton{
+		position: absolute;
+		top: 0;
+		right: 49px;
+		font-size: 16px;
+		height: 37px;
+	}
+	.in{
+		display: block; 
+		position: relative;
+	}
+} 
+.addcontent{
+	padding: 20px 0;
+	//display: none;
+	h2{
+		    font-weight: 300;
+	    color: #0084A5;
+	    font-family: 'Open Sans', sans-serif;
+	}
+	.row{
+		max-width: 1400px;
+	}
+	ul{ 
+		margin: 0;
+	}
+	li{
+		padding: 0;
+	}
+	a{
+		text-align: center;
+		padding: 10px;
+		color: #333;
+		display: block;
+		border: 1px solid #fff;
+		background: #f5f5f5;
+		figure{
+			height: 130px;
+			margin: 0 0 5px;
+			padding: 0;
+			img{
+				max-height: 100px;
+			}
+		}
+		&:hover{
+			border: 1px solid #008cba;
+		}
+	}
+	#colorbox &{
+		display: block;
+	}
+}
+
+.flexiblecontent .panel.new{
+	animation: newitem 2s 1;
+}
+@keyframes newitem{
+	0%{
+		background: #abc753;
+	}
+	100%{
+		background: #f2f2f2;
 	}
 }

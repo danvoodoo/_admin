@@ -17,6 +17,9 @@ function aftersave($id) {
                    'prod_title' => $p['title'],
                    'prod_price' => $p['price'],
                    'prod_stock' => $p['stock'],
+                   
+                   'prod_photo' => $p['photo'],
+                   'prod_code' => $p['code'],
                    );
         if ( $p['type'] == 'new' )  {
             $count  =  $data->insert(" products ", $arr);    
@@ -161,14 +164,14 @@ $list[] =  array(
         'name' => 'Stock',
         'field' => 'prod_stock',
         'type' => 'text',
-        'width' => 200
+        'width' => 100
 );
 
 
 $list[] =  array(
-        'name' => 'URL',
-        'field' => 'prod_url',
-        'type' => 'url',
+        'name' => 'Categories',
+        'field' => 'prod_category',
+        'type' => 'categories',
         'width' => 200
 );
 

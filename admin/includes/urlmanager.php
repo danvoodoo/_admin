@@ -45,34 +45,23 @@ include('init.php');
   <hr>
 
 	<div id="pages">
-		<p style="font-size: small;"><strong>PLEASE NOTE:</strong> the bold text before the Page Name is for REFERENCE only <i>(indicating which school the page belongs to)</i>, this will not be shown on the actual website.</p>
+		
 		
 		<?php 
 			foreach ($urlstructure as $type => $value) {
 		?>
 			<h4><?php echo ucwords($type); ?></h4>
 		
+			<p>
 			<?php
 				$data = new Database();
-				$where = 'post_parent = 0 AND post_type = "'. $type .'" AND post_state = 1 ORDER BY post_school ASC';
+				$where = 'post_parent = 0 AND post_type = "'. $type .'" AND post_state = 1 ORDER BY post_order DESC';
 				$count = $data->select("*", "post", $where);
 			
 				while($r = $data->getObjectResults()) {
-					if($r->post_school == 'high') {
-						$style = 'background-color: rgb(11, 48, 134); color: #ffffff;';
-						$prefix = 'high';
-					} if($r->post_school == 'primary') {
-						$style = 'background-color: rgb(16, 74, 211); color: #ffffff;';
-						$prefix = 'primary';
-					} if($r->post_school == 'nursery') {
-						$style = 'background-color: rgb(51, 153, 204); color: #ffffff;';
-						$prefix = 'nursery';
-					} if($r->post_school == 'general') {
-						$style = '';
-						$prefix = '';
-					}
+					
 			?>
-					<a href="#" <?php if($style != '') { echo 'style="'. $style .'"'; } ?> data-url='<?php // if($prefix != '') echo ''. $prefix .'/'; ?><?php echo get_url($r); ?>'><strong><?php echo $r->post_school; ?></strong> - <?php echo $r->post_title; ?></a><br>
+					<a href="#"  data-url='<?php // if($prefix != '') echo ''. $prefix .'/'; ?><?php echo get_url($r); ?>'><?php echo $r->post_title; ?></a><br>
 
 					<?php
 						$data2 = new Database();
@@ -80,18 +69,9 @@ include('init.php');
 						$count = $data2->select("*", "post", $where);
 					
 						while($r2 = $data2->getObjectResults()) {
-							if($r2->post_school == 'high') {
-								$style = 'background-color: rgb(11, 48, 134); color: #ffffff;';
-								$prefix = 'high';
-							} if($r2->post_school == 'primary') {
-								$style = 'background-color: rgb(16, 74, 211); color: #ffffff;';
-								$prefix = 'primary';
-							} if($r2->post_school == 'nursery') {
-								$style = 'background-color: rgb(51, 153, 204); color: #ffffff;';
-								$prefix = 'nursery';
-							}
+							
 					?>
-							<a href="#" <?php if($style != '') { echo 'style="'. $style .'"'; } ?> class="child" data-url='<?php // if($prefix != '') echo ''. $prefix .'/'; ?><?php echo get_url($r2); ?>'><strong><?php echo $r2->post_school; ?></strong> - <?php echo $r2->post_title; ?></a><br>
+							&nbsp;&nbsp; - <a href="#"  class="child" data-url='<?php // if($prefix != '') echo ''. $prefix .'/'; ?><?php echo get_url($r2); ?>'><?php echo $r2->post_title; ?></a><br>
 					<?php
 						}
 					?>
@@ -100,6 +80,7 @@ include('init.php');
 				}
 			}
 		?>
+		</p>
 	</div>
 
 

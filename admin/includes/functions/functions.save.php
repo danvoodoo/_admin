@@ -128,6 +128,11 @@ if (isset($_POST["action"]) AND ( $_POST["action"] == 'save' OR $_POST["action"]
 	if($_POST["action"] == 'save') {
 		$count  =  $data->insert( $extras['table'] , $arr);
 		$id = $data->lastid();
+
+		if ( isset($extras['table_order']) ) {
+			$arr = array( $extras['table_order'] => $id );
+			$count  =  $data->update( $extras['table'] , $arr, $extras['id'].'='.$id);
+		}
 	}
 
 	if($_POST["action"] == 'update') {

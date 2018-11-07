@@ -33,7 +33,7 @@ $type = 'form';
 		</div>
 		<div class="columns medium-4">
 			<label for="">Subject</label>
-			<input type="text" name='<?php echo $field['field'];?>[<?php echo $aa;?>][subject]' value='<?php flex_value('title',$co);?>'>
+			<input type="text" name='<?php echo $field['field'];?>[<?php echo $aa;?>][subject]' value='<?php flex_value('subject',$co);?>'>
 		</div>
 		<div class="columns medium-4">
 			<label for="">Button text</label>

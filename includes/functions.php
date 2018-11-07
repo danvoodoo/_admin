@@ -30,15 +30,23 @@ function showmenu($id) {
 
         <?php if ( $m->url == '#' OR $m->url == '' ) {?>
             <span><?php echo $m->title;?></span>
-        <?php }  else {?>
-            <a href="<?php echo $m->url;?>/" <?php if (isset($m->newwindow)) echo 'target="_blank"';?>><?php echo $m->title;?></a>
+        <?php }  else {
+            if (strpos($m->url, '://') === false && substr($m->url, -1) != '/') {
+                $m->url .= '/';
+            }
+            ?>
+            <a href="<?php echo $m->url;?>" <?php if (isset($m->newwindow)) echo 'target="_blank"';?>><?php echo $m->title;?></a>
         <?php } ?>
 
         <?php if ( isset($m->childs) AND count((array)$m->childs) > 0) { ?>
         <ul>
-        <?php foreach ($m->childs as $ii) {?>
+        <?php foreach ($m->childs as $ii) {
+            if (strpos($ii->url, '://') === false && substr($ii->url, -1) != '/') {
+                $ii->url .= '/';
+            }
+            ?>
             <li>
-                <a href="<?php echo $ii->url;?>/"><?php echo $ii->title;?></a>
+                <a href="<?php echo $ii->url;?>"><?php echo $ii->title;?></a>
             </li>
         <?php } ?>
         </ul>
