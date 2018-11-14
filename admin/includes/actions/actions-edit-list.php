@@ -83,7 +83,7 @@ if (isset($_GET["action"]) and $_GET["action"] == 'duplicate') {
 		while($r = $data->getObjectResults()){
 			$arr = array();
 			foreach ($r as $key => $value) {
-				$arr[ $key ] = $value;
+				$arr[ $key ] = addslashes( $value );
 			}
 			$arr[ 'post_parent' ] = $newid;
 			unset( $arr[ 'post_id' ] );
