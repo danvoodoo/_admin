@@ -47,13 +47,13 @@ if (isset($_GET["action"]) and $_GET["action"] == 'duplicate') {
 
 	$arr = array();
 	foreach ($r as $key => $value) {
-		$arr[ $key ] = $value;
+		$arr[ $key ] = addslashes( $value );
 	}
 
 	$arr[ 'post_title' ] .= ' - duplicate';
 	$arr[ 'post_url' ] .= '-duplicate';
 
-	$arr[ 'post_content' ] = addslashes($arr[ 'post_content' ]);
+	//$arr[ 'post_content' ] = addslashes($arr[ 'post_content' ]);
 
 	unset( $arr[ 'post_id' ] );
 
