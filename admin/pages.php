@@ -8,6 +8,20 @@ include('includes/header.php');
 $fields = array();
 
 $fields[] = array(
+'name' => 'Meta Title',
+'field' => 'meta_title',
+'type' => 'text',
+'columns' => 6
+);
+
+$fields[] = array(
+'name' => 'Meta Description',
+'field' => 'meta_desc',
+'type' => 'textarea',
+'columns' => 6
+);
+
+$fields[] = array(
 'name' => 'Title',
 'field' => 'post_title',
 'type' => 'text',
